@@ -116,7 +116,7 @@ class Ticker:
         dates = []
         for tick in data["data"]:
             str_data = str(tick["time"])[0:10]
-            dt_object = _datetime.datetime.fromtimestamp(int(str_data)).strftime("%Y%m%d")
+            dt_object = _datetime.datetime.fromtimestamp(int(str_data)).strftime("%Y-%m-%d")
             dates.append(dt_object)
             opens.append(tick["open"])
             closes.append(tick["close"])
