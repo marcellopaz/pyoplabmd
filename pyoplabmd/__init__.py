@@ -24,7 +24,7 @@ import pandas as _pd
 import datetime as _datetime
 import json
 
-def generate_token:
+def generate_token():
     username = input("Informe o seu e-mail do Oplab: ")
     password = input("Informe o seu password do Oplab: ")
     url = "https://api.oplab.com.br/v2/users/authenticate"

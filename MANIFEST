@@ -2,4 +2,3 @@
 setup.cfg
 setup.py
 pyoplabmd\__init__.py
-pyoplabmd\generate_token.py
