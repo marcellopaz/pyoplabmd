@@ -24,6 +24,23 @@ import pandas as _pd
 import datetime as _datetime
 import json
 
+def generate_token:
+    username = input("Informe o seu e-mail do Oplab: ")
+    password = input("Informe o seu password do Oplab: ")
+    url = "https://api.oplab.com.br/v2/users/authenticate"
+    headers = {
+        "Content-Type": "application/json"}
+    parameters = {"email": username, "password": password}
+    r = _requests.post(url=url, headers=headers, params=parameters)
+    print(r)
+    rj = {}
+    if r.status_code == 200:
+        rj = r.json()
+        token = rj["access-token"]
+        with open('token.json', 'w') as f:
+            f.write(' {"token" : "' + token + '" } ')
+
+
 class Config:
 
     def __init__(self):
