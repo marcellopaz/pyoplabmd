@@ -52,7 +52,21 @@ class Config:
         return self.Token
 
 
-
+class TickersList:
+    def __init__(self):
+        config = Config()
+        self.__TOKEN = config.getToken()
+        self._base_url = 'https://api.oplab.com.br/v2'
+        headers = {
+            "Access-Token": self.__TOKEN,
+            "Content-Type": "application/json"}
+        url = "{}/stocks".format(
+            self._base_url)
+        r = _requests.get(url=url, headers=headers)
+        rj = {}
+        if r.status_code == 200:
+            rj = r.json()
+        self.tickers_list =  _pd.DataFrame(rj)
 
 class Tickers:
     def __repr__(self):
